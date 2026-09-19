@@ -302,6 +302,50 @@ h1.name em{
   border: 1px solid var(--line);
   color: var(--ink-dim);
 }
+.card .card-detail{
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height .5s cubic-bezier(.22,1,.36,1), opacity .3s ease;
+}
+.card:hover .card-detail,
+.card:focus-visible .card-detail{
+  max-height: 220px;
+  opacity: 1;
+  margin-top: 18px;
+}
+.card .mini-stats{
+  display:flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.card .mini-stat{
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+}
+.card .mini-stat b{
+  display:block;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+.card .mini-stat span{
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.card .detail-text{
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0;
+}
 .card .open-hint{
   margin-top: 20px;
   font-size: 0.78rem;
