@@ -24,9 +24,9 @@
   --radius: 20px;
   --radius-lg: 26px;
 
-  --card-w: min(380px, 82vw);
-  --card-w-hover: min(480px, 90vw);
-  --card-w-shrink: min(260px, 60vw);
+  --card-w: min(340px, 80vw);
+  --card-w-hover: min(560px, 92vw);
+  --card-w-shrink: min(220px, 50vw);
 }
 
 *{box-sizing:border-box;}
@@ -258,14 +258,15 @@ h1.name em{
   padding: 26px 24px;
   cursor: pointer;
   overflow: hidden;
-  transition: width .5s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, transform .35s cubic-bezier(.22,1,.36,1), border-color .25s ease;
+  transition: width .6s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, transform .35s cubic-bezier(.22,1,.36,1), border-color .25s ease;
   display:flex;
   flex-direction: column;
   min-height: 340px;
 }
 .carousel:has(.card:hover) .card{ width: var(--card-w-shrink); }
+.carousel:has(.card:hover) .card:hover,
+.carousel:has(.card:hover) .card:focus-visible{ width: var(--card-w-hover); }
 .card:hover, .card:focus-visible{
-  width: var(--card-w-hover);
   transform: translateY(-4px);
   box-shadow: 0 24px 50px -18px rgba(0,0,0,0.55);
   border-color: var(--accent);
