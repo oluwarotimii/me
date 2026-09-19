@@ -92,17 +92,6 @@
     requestAnimationFrame(loop);
   }
 
-  /* ---------- carousel: wheel -> horizontal ---------- */
-  var carousel = document.getElementById('carousel');
-  if(carousel){
-    carousel.addEventListener('wheel', function(e){
-      if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-        carousel.scrollLeft += e.deltaY;
-        e.preventDefault();
-      }
-    }, { passive: false });
-  }
-
   /* ---------- overlay case study ---------- */
   var overlay = document.getElementById('overlay');
   var overlayContent = document.getElementById('overlay-content');

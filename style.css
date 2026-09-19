@@ -500,9 +500,6 @@ footer{
 }
 .contact-head a{
   text-decoration:none;
-  border-bottom: 3px solid var(--accent);
-  border-radius: 0 0 100px 100px;
-  padding-bottom: 3px;
   transition: color .3s ease;
 }
 .contact-head a:hover{ color: var(--accent); }
