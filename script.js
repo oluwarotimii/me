@@ -27,10 +27,10 @@
       tag: "AI · In development",
       title: "Polykut",
       lede: "An AI-driven document digitization platform — turning shelves of paper records into structured, searchable data. A proposal is in with Kwara State's Teaching Service Commission.",
-      stats: [["OCR","+ structuring pipeline"],["Gov't","pilot proposed"],["Orionis","product line"]],
+      stats: [["OCR","+ structuring pipeline"],["Gov't","pilot proposed"],["Solo-built","concept to pilot"]],
       problem: "Institutions across Kwara State are sitting on decades of paper records that are slow to search, easy to lose, and expensive to digitize by hand.",
       approach: "Polykut runs scanned documents through an OCR and structuring pipeline, extracting fields into a searchable schema rather than just producing raw text. It's built to be reused across document types with light reconfiguration.",
-      stack: ["Python","OCR / AI","Node.js API","Orionis Nig. Limited"]
+      stack: ["Python","OCR / AI","Node.js API"]
     },
     cart: {
       tag: "Consumer · Live · 5,000+ downloads",
@@ -84,7 +84,7 @@
 
     function loop(){
       target = window.scrollY || 0;
-      current += (target - current) * 0.085;
+      current += (target - current) * 0.22;
       if(Math.abs(target - current) < 0.05){ current = target; }
       container.style.transform = 'translate3d(0,' + (-current) + 'px,0)';
       requestAnimationFrame(loop);
@@ -128,9 +128,14 @@
       '</div>';
   }
 
-  function openOverlay(key){
+  function openOverlay(key, originEl){
     renderProject(key);
     lastFocused = document.activeElement;
+    if(originEl){
+      var rect = originEl.getBoundingClientRect();
+      overlay.style.setProperty('--ox', (rect.left + rect.width / 2) + 'px');
+      overlay.style.setProperty('--oy', (rect.top + rect.height / 2) + 'px');
+    }
     overlay.classList.add('open');
     overlay.scrollTop = 0;
     document.body.style.overflow = 'hidden';
@@ -145,12 +150,12 @@
   document.querySelectorAll('.card').forEach(function(card){
     card.setAttribute('tabindex','0');
     card.addEventListener('click', function(){
-      openOverlay(card.getAttribute('data-project'));
+      openOverlay(card.getAttribute('data-project'), card);
     });
     card.addEventListener('keydown', function(e){
       if(e.key === 'Enter' || e.key === ' '){
         e.preventDefault();
-        openOverlay(card.getAttribute('data-project'));
+        openOverlay(card.getAttribute('data-project'), card);
       }
     });
   });
