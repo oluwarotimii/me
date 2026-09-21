@@ -5,17 +5,8 @@
 
   /* ---------- project data ---------- */
   var PROJECTS = {
-    loopereco: {
-      tag: "Marketplace · Live",
-      title: "Loopereco",
-      lede: "A food marketplace connecting local vendors with buyers — built to make discovering and ordering from nearby vendors as easy as browsing a feed.",
-      stats: [["2","sided marketplace"],["Live","in market"],["NGN","native payments"]],
-      problem: "Local food vendors had no simple digital storefront, and buyers had no single place to discover and order from them. Loopereco needed vendor onboarding, catalog management, ordering, and payment collection working together from day one.",
-      approach: "Built as a React Native app on top of a Node.js/Express API, with a Postgres-backed catalog and order system. Vendor and buyer flows were designed separately but share the same order and payment pipeline underneath.",
-      stack: ["React Native","Node.js","Express","PostgreSQL","Payments"]
-    },
     termfees: {
-      tag: "Fintech · Live",
+      tag: "Fintech · In development",
       title: "TermFees",
       lede: "A payment collection platform built first for school fees, then generalized for multi-industry collection — with dedicated virtual accounts and instant WhatsApp confirmations.",
       stats: [["1:1","virtual accounts per payer"],["WhatsApp","payment alerts"],["Multi","industry ready"]],
@@ -44,15 +35,6 @@
       stack: ["Python","OCR / AI","Node.js API","Semantic Search"],
       link: "https://polykut.orionisx.com",
       linkLabel: "polykut.orionisx.com"
-    },
-    cart: {
-      tag: "Consumer · Live · 5,000+ downloads",
-      title: "Market Cart",
-      lede: "A React Native e-commerce app on Google Play — product catalog, cart, and checkout — with real, ongoing usage.",
-      stats: [["5,000+","downloads"],["Google Play","published"],["Redux","state layer"]],
-      problem: "Building and shipping a consumer mobile shopping experience that holds up under real usage, not just a demo — catalog browsing, cart persistence, and checkout all needed to feel instant.",
-      approach: "React Native front end with a Redux-managed cart and checkout flow, talking to a REST API for catalog and order data. Shipped to Google Play and iterated on based on real usage.",
-      stack: ["React Native","Redux","REST API","Google Play"]
     },
     hrms: {
       tag: "HR Tech · Multi-platform",
