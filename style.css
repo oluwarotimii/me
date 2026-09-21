@@ -420,6 +420,18 @@ h1.name em{
   max-width: 620px;
   margin-bottom: 44px;
 }
+.overlay-visit{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: -28px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+.overlay-visit:hover{ color: var(--light-green); }
 .overlay-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -543,10 +555,11 @@ footer{
   margin-bottom: 40px;
 }
 .contact-head a{
+  color: var(--accent);
   text-decoration:none;
   transition: color .3s ease;
 }
-.contact-head a:hover{ color: var(--accent); }
+.contact-head a:hover{ color: var(--light-green); }
 .foot-row{
   display:flex; justify-content:space-between; align-items:center;
   flex-wrap: wrap; gap: 16px;

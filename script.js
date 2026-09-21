@@ -23,14 +23,27 @@
       approach: "Each payer gets a dedicated virtual account, so incoming payments reconcile automatically against the right record. A WhatsApp notification pipeline confirms payment the moment it lands, closing the loop without any manual follow-up.",
       stack: ["Node.js","Express","Virtual Accounts","WhatsApp API","MySQL"]
     },
+    conashop: {
+      tag: "PWA · Live · Collaboration",
+      title: "Conashop",
+      lede: "A progressive web app that gives Nigerian SMEs and kiosk stores real-time inventory and profit tracking — built for shop owners who've been running the numbers with pen, paper, and prayer.",
+      stats: [["500+","shop owners"],["PWA","installs like an app"],["Backend","my contribution"]],
+      problem: "Small shop and kiosk owners in Nigeria were tracking stock and profit by hand — no visibility into real margins, no easy way to convert bulk purchases into retail units, and no backup if a paper ledger got lost.",
+      approach: "Conashop is a PWA built on React and Supabase. I built the backend as part of a small team — real-time inventory sync, automatic profit-margin calculation from cost and sale prices, and a unit-conversion engine so a shop buying in bulk (drums, bags) but selling in small units (cups, sachets) doesn't have to do the math by hand. It also handles PDF/CSV exports and growth analytics.",
+      stack: ["React","Supabase","PWA","REST API"],
+      link: "https://conashop.com",
+      linkLabel: "conashop.com"
+    },
     polykut: {
-      tag: "AI · In development",
+      tag: "AI · Live",
       title: "Polykut",
-      lede: "An AI-driven document digitization platform — turning shelves of paper records into structured, searchable data. A proposal is in with Kwara State's Teaching Service Commission.",
-      stats: [["OCR","+ structuring pipeline"],["Gov't","pilot proposed"],["Solo-built","concept to pilot"]],
-      problem: "Institutions across Kwara State are sitting on decades of paper records that are slow to search, easy to lose, and expensive to digitize by hand.",
-      approach: "Polykut runs scanned documents through an OCR and structuring pipeline, extracting fields into a searchable schema rather than just producing raw text. It's built to be reused across document types with light reconfiguration.",
-      stack: ["Python","OCR / AI","Node.js API"]
+      lede: "Polykut turns the paper trail industries already have — invoices, receipts, contracts — into a searchable, well-documented database, while preserving the original documents.",
+      stats: [["11s","PDF → searchable"],["Local-first","encrypted bundles"],["Gov't","Kwara State pilot"]],
+      problem: "Institutions were sitting on decades of paper records — invoices, receipts, contracts — that were slow to search, easy to lose, and expensive to digitize by hand, all while needing to keep the original documents intact.",
+      approach: "Polykut runs scanned documents through an AI extraction and OCR pipeline, pulling out vendors, totals, dates, and terms automatically, then indexes every field for plain-language search — \"invoices over $200 in August\" style queries — while archiving the original file to encrypted, per-workspace storage. A pilot is proposed with Kwara State's Teaching Service Commission.",
+      stack: ["Python","OCR / AI","Node.js API","Semantic Search"],
+      link: "https://polykut.orionisx.com",
+      linkLabel: "polykut.orionisx.com"
     },
     cart: {
       tag: "Consumer · Live · 5,000+ downloads",
@@ -40,6 +53,33 @@
       problem: "Building and shipping a consumer mobile shopping experience that holds up under real usage, not just a demo — catalog browsing, cart persistence, and checkout all needed to feel instant.",
       approach: "React Native front end with a Redux-managed cart and checkout flow, talking to a REST API for catalog and order data. Shipped to Google Play and iterated on based on real usage.",
       stack: ["React Native","Redux","REST API","Google Play"]
+    },
+    hrms: {
+      tag: "HR Tech · Multi-platform",
+      title: "HRMS",
+      lede: "A complete HR system spanning a staff-facing mobile app and PWA and a separate admin web dashboard, all backed by one API.",
+      stats: [["3","client surfaces"],["React Native","staff app"],["React","admin dashboard"]],
+      problem: "HR teams needed one system that worked for both staff — checking in, viewing HR info from a phone — and administrators managing staff records, approvals, and reporting from a desktop-grade dashboard, without duplicating logic across separate codebases.",
+      approach: "Built as three coordinated front ends — a React Native mobile app and a PWA for staff, and a React admin dashboard for HR teams — sharing one backend API for HR data, approvals, and records.",
+      stack: ["React Native","React","Node.js","PWA"]
+    },
+    dbwatcher: {
+      tag: ".NET · Windows Service",
+      title: "DB Watcher",
+      lede: "A lightweight Windows service that watches a database's availability around the clock and reports status back to a remote monitoring server.",
+      stats: [["24/7","availability checks"],["Windows Service","background process"],["Remote","status reporting"]],
+      problem: "Database outages or slowdowns were only discovered after someone noticed the application acting up — there was no automated, always-on watcher reporting status independently of the application itself.",
+      approach: "Built as a standalone Windows service, separate from the main application, that periodically checks database availability and pushes status back to a remote server, so outages surface immediately instead of being discovered secondhand.",
+      stack: [".NET","Windows Service","Monitoring / Alerts"]
+    },
+    frappeschool: {
+      tag: "EdTech · Frappe/ERPNext",
+      title: "Frappe School App",
+      lede: "A school management system built on Frappe/ERPNext, customized to fit Nigeria's education system — grading scale, terms, and other local conventions the out-of-the-box module doesn't handle.",
+      stats: [["Custom","grading scale"],["Frappe","ERPNext base"],["Nigeria","education context"]],
+      problem: "Frappe's education module ships with grading and term conventions that don't match how Nigerian schools actually grade and structure the academic year, so schools adopting it needed real customization, not just configuration.",
+      approach: "Extended Frappe/ERPNext's education module to support Nigeria's grading scale and school-term conventions, adapting the existing framework rather than building a school system from scratch.",
+      stack: ["Frappe / ERPNext","Python","Grading Engine"]
     },
     aegis: {
       tag: "Go · Building now",
@@ -105,10 +145,13 @@
       return '<div class="stat"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>';
     }).join('');
     var stackHtml = p.stack.map(function(s){ return '<span class="pill">'+s+'</span>'; }).join('');
+    var linkHtml = p.link ?
+      '<a class="overlay-visit" href="'+p.link+'" target="_blank" rel="noopener">Visit '+p.linkLabel+' <svg class="icon"><use href="#ph-arrow-up-right"/></svg></a>' : '';
     overlayContent.innerHTML =
       '<div class="overlay-tag">'+p.tag+'</div>' +
       '<h2>'+p.title+'</h2>' +
       '<p class="overlay-lede">'+p.lede+'</p>' +
+      linkHtml +
       '<div class="overlay-grid">'+statsHtml+'</div>' +
       '<div class="overlay-body">' +
         '<div><h4>The problem</h4><p>'+p.problem+'</p>' +
