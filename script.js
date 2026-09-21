@@ -179,11 +179,28 @@
     if(e.key === 'Escape' && overlay.classList.contains('open')) closeOverlay();
   });
 
+  /* ---------- mobile nav toggle ---------- */
+  var nav = document.getElementById('nav');
+  var navToggle = document.getElementById('nav-toggle');
+  if(nav && navToggle){
+    navToggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  function closeNav(){
+    if(nav && nav.classList.contains('open')){
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  }
+
   /* ---------- smooth in-page nav ---------- */
   document.querySelectorAll('nav a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
       var id = a.getAttribute('href').slice(1);
       var target = document.getElementById(id);
+      closeNav();
       if(target){
         e.preventDefault();
         var y = target.getBoundingClientRect().top + window.scrollY - 16;

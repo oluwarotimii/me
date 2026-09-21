@@ -16,9 +16,12 @@
   <symbol id="ph-envelope" viewBox="0 0 256 256"><rect x="32" y="56" width="192" height="144" rx="16"/><polyline points="40,72 128,144 216,72"/></symbol>
 </svg>
 
-<nav>
+<nav id="nav">
   <div class="brand">Oluwarotimi<span>.</span></div>
-  <div class="links">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="links" id="nav-links">
     <a href="#work">Work</a>
     <a href="#stack">Stack</a>
     <a href="#about">About</a>
@@ -191,6 +194,7 @@
 
         </div>
       </div>
+      <p class="swipe-hint">&larr; swipe &rarr;</p>
     </div>
   </section>
 
