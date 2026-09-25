@@ -63,15 +63,15 @@
       approach: "Extended Frappe/ERPNext's education module to support Nigeria's grading scale and school-term conventions, adapting the existing framework rather than building a school system from scratch.",
       stack: ["Frappe / ERPNext","Python","Grading Engine"]
     },
-    aegis: {
-      tag: "Go · Building now",
-      title: "Aegis Pipeline",
-      lede: "A concurrent document-processing service written in Go — the project I'm using to go deeper on backend infrastructure beyond Node.",
-      stats: [["Go","first production service"],["Queues","+ retry logic"],["API","REST / gRPC"]],
-      problem: "My stack has been Node-heavy. I wanted a real, non-trivial backend project to build genuine range in Go — something with concurrency, failure handling, and infrastructure decisions, not another CRUD API.",
-      approach: "Aegis ingests documents into a queue, processes them concurrently through an OCR pipeline (the same problem Polykut solves, rebuilt as a standalone Go service), retries failed jobs automatically, and exposes results through a clean REST/gRPC API.",
-      stack: ["Go","Goroutines & Channels","Worker Queues","gRPC","REST"]
-    }
+    // aegis: {
+    //   tag: "Go · Building now",
+    //   title: "Aegis Pipeline",
+    //   lede: "A concurrent document-processing service written in Go — the project I'm using to go deeper on backend infrastructure beyond Node.",
+    //   stats: [["Go","first production service"],["Queues","+ retry logic"],["API","REST / gRPC"]],
+    //   problem: "My stack has been Node-heavy. I wanted a real, non-trivial backend project to build genuine range in Go — something with concurrency, failure handling, and infrastructure decisions, not another CRUD API.",
+    //   approach: "Aegis ingests documents into a queue, processes them concurrently through an OCR pipeline (the same problem Polykut solves, rebuilt as a standalone Go service), retries failed jobs automatically, and exposes results through a clean REST/gRPC API.",
+    //   stack: ["Go","Goroutines & Channels","Worker Queues","gRPC","REST"]
+    // }
   };
 
   /* ---------- reveal on scroll ---------- */
